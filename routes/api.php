@@ -20,6 +20,8 @@ Route::post('/power-data', function (Request $request) {
         'recorded_at' => 'required|date',
     ]);
 
+    $validated['power'] = $validated['power'] / 1000;
+
     $powerData = PowerData::create($validated);
 
     return response()->json(['status' => 'success', 'data' => $powerData], 201);
