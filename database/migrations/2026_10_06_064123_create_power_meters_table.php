@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->integer('slave_id')->unique();
             $table->string('name', 100);
+            $table->float('max_voltage')->default(250);
+            $table->float('max_current')->default(100);
+            $table->float('max_power')->default(25000);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

@@ -9,6 +9,9 @@ class PowerMeter extends Model
     protected $fillable = [
         'slave_id',
         'name',
+        'max_voltage',
+        'max_current',
+        'max_power',
         'is_active',
     ];
 

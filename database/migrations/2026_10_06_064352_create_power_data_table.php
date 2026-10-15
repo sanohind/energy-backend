@@ -21,6 +21,7 @@ return new class extends Migration
             $table->float('voltage', 8, 2);
             $table->float('current', 8, 2);
             $table->float('power', 10, 2);
+            $table->float('total_kwh', 10, 2);
             $table->timestamp('recorded_at');
             $table->timestamps();
             $table->index(['power_meter_id', 'recorded_at']);

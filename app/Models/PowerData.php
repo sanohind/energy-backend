@@ -11,6 +11,7 @@ class PowerData extends Model
         'voltage',
         'current',
         'power',
+        'total_kwh',
         'recorded_at',
     ];
 
