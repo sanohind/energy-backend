@@ -31,10 +31,11 @@ Route::middleware(['auth:sanctum', 'active'])->group(function () {
     Route::post('/auth/logout', [AuthController::class, 'logout']);
     Route::get('/auth/me', [AuthController::class, 'me']);
 
-    Route::get('/power-data/{power_meter_id}', function ($powerMeterId) {
+    Route::get('/power-data/{power_meter_id}', function (Request $request, $powerMeterId) {
+        $date = $request->query('date', \Carbon\Carbon::today()->toDateString());
         return PowerData::where('power_meter_id', $powerMeterId)
+            ->whereDate('recorded_at', $date)
             ->orderBy('recorded_at', 'desc')
-            ->limit(100)
             ->get();
     });
 
